@@ -1,0 +1,379 @@
+<DOCTYPE html>
+<html>
+
+  <head>
+    <title>Rosanne Wang | Portfolio</title>
+  </head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">
+  <link rel="stylesheet"
+            type="text/css"
+            href="lightbox2/dist/css/lightbox.min.css">
+
+  <style>
+    body,h1,h2,h3,h4,h5,h6 {font-family: "Trebuchet MS'", sans-serif}
+    .w3-bar-block .w3-bar-item {padding:20px}
+
+    #portfolio {
+      font-size: 130%;
+      letter-spacing: 8px;
+      position: absolute;
+      left: calc(50% + /*286px*/ 60px);
+      top: calc(15%);
+      transform: translate(-50%, -50%) rotate(60deg);
+    }
+    #statement{
+      font-size: 130%;
+      letter-spacing: 7px;
+      position: absolute;
+      left: calc(50% - /*286px*/ 60px);
+      top: calc(15%); /*changed top*/
+      transform: translate(-50%, -50%) rotate(300deg);
+    }
+    #about {
+      font-size: 130%;
+      font-weight: 900;
+      letter-spacing: 8px;
+      position: absolute;
+      left: 50%;
+      top: 25%;
+      transform: translate(-50%, -25%);
+    }
+
+    #tri {
+      font-size: 180%;
+      letter-spacing: 8px;
+      position: absolute;
+      left: 50%;
+      top: calc(12.5% + 30px);
+      transform: translate(-50%, -50%)
+    }
+
+    /*back to top button*/
+    #top {
+      display: none;
+      position: fixed;
+      bottom: 25px;
+      right: 50px;
+      z-index: 99;
+      font-size: 20px;
+      border: none;
+      outline: none;
+      background-color: darkgray;
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 4px;
+      transition: color .2s;
+      font-size: 180%;
+    }
+    #top:hover {
+      transition: background-color .3s;
+      background-color: #555;
+    }
+
+    /*menu button*/
+    #tri {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 20px;
+      border: none;
+      outline: none;
+      background-color: darkgray;
+      color: white;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 4px;
+      transition: color .2s;
+      font-size: 180%;
+    }
+    #tri:hover {
+      transition: background-color .3s;
+      background-color: #555;
+    }
+
+    .nav-link-wrapper a{
+      color: black;
+      text-decoration: none;
+      transition: color .3s;
+    }
+    .nav-link-wrapper a:hover{
+      cursor: pointer;
+      color: lightgray;
+    }
+
+    nav {
+      font-family: 'Trebuchet MS', sans-serif;
+      letter-spacing: 5px;
+    }
+
+    div {
+      padding: 70px;
+      /*border: 1px solid #4CAF50;*/
+    }
+    h1 {
+      text-align: center;
+      font-family: 'Trebuchet MS', sans-serif;
+      letter-spacing: 7px;
+      /*border: 1px solid #4CAF50;*/
+    }
+    p {
+      text-align: center;
+      font-family: 'Trebuchet MS', sans-serif;
+      letter-spacing: 3px;
+      font-size:14pt;
+      /*border: 1px solid #4CAF50;*/
+    }
+
+    /*gallery stufff*/
+    body {
+      text-align: center;
+    }
+    .gallery {
+      margin: 5px 40px;
+    }
+
+    .gallery img {
+      height: 180px;
+      transition: .6s;
+      padding: 1px;
+    }
+
+    .gallery img:hover {
+      filter: drop-shadow(6px 6px 8px gray);
+    }
+
+    /*modal stuff*/
+    .myImg {
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      padding-top: 100px; /* Location of the box */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: rgb(0,0,0); /* Fallback color */
+      background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    }
+    /* Modal Content (Image) */
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: auto;
+      height: 100%;
+      max-height: 1000px;
+    }
+    /* Caption of Modal Image (Image Text) - Same Width as the Image */
+    #caption {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 700px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+      height: 150px;
+    }
+    /* Add Animation - Zoom in the Modal */
+    .modal-content, #caption {
+      animation-name: zoom;
+      animation-duration: 0.6s;
+    }
+    @keyframes zoom {
+      from {transform:scale(0)}
+      to {transform:scale(1)}
+    }
+    /* The Close Button */
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    /* 100% Image Width on Smaller Screens */
+    @media only screen and (max-width: 700px){
+      .modal-content {
+        width: 100%;
+      }
+    }
+
+    /*name logo stuff*/
+    #rosanne-logo,#wang-logo{
+      font-size: 400%;
+      font-weight: 1;
+      position: absolute;
+      transform: translate(-50%, -50%)
+    }
+    #rosanne-logo{
+      letter-spacing: 20px;
+      top: 20%;
+      left: 25%;
+    }
+    #wang-logo{
+      letter-spacing: 30px;
+      top: 20%;
+      right: 6%;
+    }
+
+
+
+  </style>
+  <body>
+
+    <!-- sidebar (hidden by default) -->
+    <nav class="w3-sidebar w3-bar-block w3-card w3-top w3-xlarge w3-animate-left" style="display:none;z-index:2;width:10%;min-width:250px" id="mySidebar">
+      <a href="javascript:void(0)" onclick="w3_close()"class="w3-bar-item w3-button">🗙</a>
+      <a a href="home.html" class="w3-bar-item"><img src="signature.png" style="height:4.3%"></a>
+      <!--<a class="w3-bar-item"></a> -->
+
+      <a href="#aboutme" onclick="w3_close()"class="w3-bar-item w3-button">ABOUT ME</a>
+      <a href="#awards" onclick="w3_close()" class="w3-bar-item w3-button">AWARDS</a>
+      <a href="#exp" onclick="w3_close()" class="w3-bar-item w3-button">EXPERIENCE</a>
+
+
+    </nav>
+
+    <nav>
+      <!--<a href="home.html"> <img src="signature.png" alt="" id="logo"> </a>-->
+      <div class="nav-link-wrapper">
+        <!--<a href="home.html" id="rosanne-logo">ROSANNE </a>
+        <a href="home.html" id="wang-logo"> WANG</a>-->
+        <a href="statement.html" id="statement">STATEMENT</a>
+        <a href="portfolio.html" id="portfolio" class="button">PORTFOLIO</a>
+        <a href="about.html" id="about">ART & I</a>
+      </div>
+    <nav>
+
+    <br><br><br>
+    <div>
+
+
+      <div class="gallery">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+        <h1 id="aboutme">ABOUT ME</h1>
+        <p style="font-size:14pt; margin-right: 100pt; margin-left:100pt">Rosanne Wang was born in New Haven, Connecticut and spent most of her early childhood in a
+        semi-rural city upstate New York. She later moved to Virginia to finish elementary, start middle, and later attend high school. Rosanne's interest in art developed at a
+        young age with the help of her mother who was also an artist. As a observant thoughtful girl, Rosanne found that she had countless ideas and a
+        unique take on the world that she could only express through her creations. Today, she creates her artworks in Virginia where she also
+        attends high school.</p>
+
+
+        <br><br><br><br>
+        <h1 id="awards">AWARDS</h1>
+        <p style="margin-right: 100pt; margin-left:100pt">2021 Scholastic Art & Writing Honorable Mention</p>
+        <img class="myImg" src="the times.jpg" alt="&quotThe Times&quot, 2021 | charcoal on paper"> <br><br>
+        <p style="margin-right: 100pt; margin-left:100pt">2021 Scholastic Art & Writing Honorable Mention</p>
+        <img class="myImg" src="Miss Under Standing.jpg" alt="&quotMiss Under Standing&quot, 2020 | charcoal on paper 11H x 9.5W in"> <br><br>
+        <p style="margin-right: 100pt; margin-left:100pt">2020 Scholastic Art & Writing Gold Key</p>
+        <img class="myImg" src="endless dream.jpg" alt="&quotEndless Dream&quot, 2020 | watercolor on paper"> <br><br>
+        <p style="margin-right: 100pt; margin-left:100pt">2019 Scholastic Art & Writing Honorable Mention</p>
+        <img class="myImg" src="wild.png" alt="&quotWild&quot, 2017 | 816H x 1056W px"> <br><br>
+        <p style="margin-right: 100pt; margin-left:100pt">2017 Scholastic Art & Writing Gold Key</p>
+        <img class="myImg" src="self portrait 1.jpg" alt="&quotSelf Portrait&quot, 2017 | colored pencil on paper">
+        <br><br><br>
+
+
+
+        <br><br><br><br><br><br>
+        <h1 id="exp">EXPERIENCE</h1>
+        <p style="font-size:16pt; margin-right: 100pt; margin-left:100pt">coded this website using HTML, JS, and CSS with the help of references</p>
+
+
+
+
+        <div id="myModal" class="modal">
+        <!-- The Close Button -->
+        <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span> <!--https://stackoverflow.com/questions/41275958/modal-image-galleries-multiple-images-->
+        <!-- Modal Content (The Image) -->
+        <img class="modal-content" id="img01" style="height:100%">
+        <!-- Modal Caption (Image Text) -->
+        <div id="caption"></div>
+      </div>
+
+
+
+    </div>
+
+
+
+      <button onclick="topFunction()" id="top" title="Go to top">ꕔ</button>\
+      <button href="tri.html" id="tri" onclick="w3_open()"><a>≡</a></button>
+
+    </div>
+
+
+    <script>
+      //navbar open & close
+      function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+      }
+
+      function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+      }
+
+      //top button
+      var mybutton = document.getElementById("top");
+      window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+        if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        }
+        else{
+          mybutton.style.display = "none";
+        }
+      }
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+
+      //Modal
+      var modal = document.getElementById("myModal");
+      // Get the image and insert it inside the modal - use its "alt" text as a caption
+
+      var img = $('.myImg'); //got from https://stackoverflow.com/questions/41275958/modal-image-galleries-multiple-images
+      var modalImg = $("#img01");
+      var captionText = document.getElementById("caption");
+      $('.myImg').click(function(){
+        modal.style.display = "block";
+        var newSrc = this.src;
+        modalImg.attr('src', newSrc);
+        captionText.innerHTML = this.alt;
+      });
+
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+
+    </script>
+
+
+  </body>
+  <!-- references: W3Schools,. GeeksForGeeks -->
+</html>
